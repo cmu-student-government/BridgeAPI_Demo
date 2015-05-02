@@ -16,9 +16,9 @@ exports.index = function(req, res) {
     console.log("Error! API returned with a status code of " + api_res.statusCode + ".");
 
   var data = JSON.parse(api_res.body) // Parse out our response
-  if (!data.items) data.items = []
+  if (!data.items) data.items = [];
   items = items.concat(data.items.filter(function(e) { return e.flyerUrl && e.flyerUrl !== "" })); // Filter out only events with flyer images
 
   // Respond with only the partial if it's an AJAX request
-  res.render('home', { layout: !req.xhr, items: items})
+  res.render('home', { layout: !req.xhr, items: items })
 }

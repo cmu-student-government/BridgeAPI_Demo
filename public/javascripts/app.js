@@ -17,7 +17,7 @@ $(function() {
   var isLoading = false;
   $(window).scroll(function () {
     if (isLoading) return;
-    if (($(window).scrollTop() * 100 / $(document).height()) < 60) return;
+    if (($(window).scrollTop() * 100 / $(document).height()) < 80) return;
     loadNextPage();
     isLoading = true;
   });
@@ -25,7 +25,7 @@ $(function() {
   function loadNextPage() {
     $.ajax("/?page=" + page++, {
       method: "GET",
-      success: function(i) { i = $(i); container.append(i).masonry("appended", i, true); },
+      success: function(i) { i = $(i); container.append(i).masonry("appended", i, true).masonry(); },
     }).always(function() { isLoading = false; });
   }
 
