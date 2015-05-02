@@ -1,6 +1,6 @@
 var sreq = require('sync-request');
 
-// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'; // Allow StuGov server's SSL cert (most don't need this)
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'; // Allow StuGov server's SSL cert (most don't need this)
 var key = process.env["bridgeapi_key"]; // Your API Private Key
 var andrew = process.env["bridgeapi_andrew"]; // Your API Andrew ID
 var url = "https://stugov.andrew.cmu.edu/staging/bridgeapi/api/v1/events";
